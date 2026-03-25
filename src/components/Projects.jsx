@@ -1,6 +1,12 @@
 import React from 'react';
 import './Projects.css';
 
+// 1. IMPORTAMOS las imágenes desde la carpeta assets
+import asismedImg from '../assets/asismed-mockup.png';
+import ecollectaImg from '../assets/ecollecta-mockup.jpg';
+import cosmoImg from '../assets/cosmo-mockup.png';
+import contadoresImg from '../assets/contadores-mockup.png';
+
 export default function Projects() {
     return (
         <section id="projects" className="projects-section">
@@ -18,7 +24,8 @@ export default function Projects() {
                     {/* PROJECT 1: ASISMED ULSA */}
                     <article className="project-card">
                         <div className="project-image-container">
-                            <img src="src/assets/asismed-mockup.png" alt="ASISMED ULSA" className="project-img" />
+                            {/* Usamos la variable importada en lugar de la ruta de texto */}
+                            <img src={asismedImg} alt="ASISMED ULSA" className="project-img" />
                             <div className="project-image-placeholder">
                                 <span className="placeholder-text">ASISMED ULSA · [UX/UI Mockup]</span>
                             </div>
@@ -43,7 +50,7 @@ export default function Projects() {
                     {/* PROJECT 2: ECOLLECTA */}
                     <article className="project-card">
                         <div className="project-image-container">
-                            <img src="src/assets/ecollecta-mockup.jpg" alt="Ecollecta App" className="project-img" />
+                            <img src={ecollectaImg} alt="Ecollecta App" className="project-img" />
                             <div className="project-image-placeholder">
                                 <span className="placeholder-text">Ecollecta · [React Native App]</span>
                             </div>
@@ -72,7 +79,7 @@ export default function Projects() {
                     {/* PROJECT 3: COSMO */}
                     <article className="project-card">
                         <div className="project-image-container">
-                            <img src="src/assets/cosmo-mockup.png" alt="Cosmo App" className="project-img" />
+                            <img src={cosmoImg} alt="Cosmo App" className="project-img" />
                             <div className="project-image-placeholder">
                                 <span className="placeholder-text">03. Cosmo · [AI & Desktop App]</span>
                             </div>
@@ -101,7 +108,7 @@ export default function Projects() {
                     {/* PROJECT 4: COUNTER CALCULATOR */}
                     <article className="project-card">
                         <div className="project-image-container">
-                            <img src="src/assets/contadores-mockup.png" alt="Counter Calculator" className="project-img" />
+                            <img src={contadoresImg} alt="Counter Calculator" className="project-img" />
                             <div className="project-image-placeholder">
                                 <span className="placeholder-text">04. Digital Counter · [React JS]</span>
                             </div>

@@ -1,22 +1,22 @@
+import React from 'react';
 import "./Navbar.css";
 import { Home, Coffee, FolderKanban, Phone } from "lucide-react";
+
+// 1. IMPORTAMOS el icono para que Vite lo procese correctamente
+import avatarIcon from "../assets/icon.png";
 
 export default function Navbar() {
 
     // Función para deslizar suavemente y aplicar el efecto de desenfoque
     const handleScroll = (sectionId) => {
         const section = document.getElementById(sectionId);
-        // Usamos un contenedor principal para no desenfocar el Navbar también
         const mainContent = document.getElementById("main-content");
 
         if (section) {
-            // 1. Aplicamos la clase de desenfoque al contenido
             if (mainContent) mainContent.classList.add("scrolling-blur");
 
-            // 2. Deslizamos suavemente hacia la sección deseada
             section.scrollIntoView({ behavior: "smooth" });
 
-            // 3. Retiramos el desenfoque después de 600ms (ajusta a tu gusto)
             setTimeout(() => {
                 if (mainContent) mainContent.classList.remove("scrolling-blur");
             }, 600);
@@ -31,7 +31,6 @@ export default function Navbar() {
                     About me
                 </button>
 
-                {/* ¡Aquí está conectado tu botón de Skills! */}
                 <button onClick={() => handleScroll('skills')}>
                     <Coffee size={18} />
                     Skills
@@ -49,7 +48,8 @@ export default function Navbar() {
             </div>
 
             <div className="avatar-small">
-                <img src="/src/assets/icon.png" alt="avatar icon" />
+                {/* 2. USAMOS la variable importada aquí */}
+                <img src={avatarIcon} alt="avatar icon" />
             </div>
         </nav>
     );

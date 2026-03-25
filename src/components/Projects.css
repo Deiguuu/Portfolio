@@ -1,0 +1,232 @@
+/* ===== FONDO DE CUADRÍCULA (Sincronizado con Skills) ===== */
+.projects-section {
+    min-height: 100vh;
+    padding: 100px 0;
+    width: 100%;
+    background-color: #ffffff;
+    background-image:
+        linear-gradient(rgba(255, 0, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center top;
+}
+
+.projects-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* ===== CABECERA ===== */
+.projects-header {
+    margin-bottom: 4rem;
+}
+
+.projects-title {
+    font-size: 5rem;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 0.5rem;
+    letter-spacing: -2px;
+}
+
+.projects-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 650px;
+    line-height: 1.6;
+}
+
+/* ===== GRID DE PROYECTOS 2x2 ===== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    width: 100%;
+}
+
+/* ===== TARJETAS (CARDS) ===== */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 32px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+    border-color: rgba(255, 0, 0, 0.2);
+    /* Sutil cambio al rojo de tu grid */
+}
+
+/* ===== CONTENEDOR DE IMAGEN ===== */
+.project-image-container {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    position: relative;
+    background-color: #f8fafc;
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.08);
+}
+
+.project-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Ocultar placeholder si hay imagen */
+.project-img~.project-image-placeholder {
+    display: none;
+}
+
+.placeholder-text {
+    color: #cbd5e1;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* ===== CONTENIDO ===== */
+.project-content {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex-grow: 1;
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tag-design {
+    background-color: #f0f9ff;
+    color: #0ea5e9;
+}
+
+.tag-dev {
+    background-color: #fefce8;
+    color: #a16207;
+}
+
+.tag-brand {
+    background-color: #f5f3ff;
+    color: #7c3aed;
+}
+
+/* NUEVA ETIQUETA: Lógica Digital / Contadores */
+.tag-logic {
+    background-color: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid rgba(22, 163, 74, 0.2);
+}
+
+.project-name {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #111;
+    margin: 0;
+}
+
+.project-description {
+    font-size: 1.05rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.project-link {
+    margin-top: auto;
+    padding-top: 1.2rem;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.3s ease;
+}
+
+.project-link:hover {
+    gap: 1rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1000px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .projects-title {
+        font-size: 3.5rem;
+    }
+
+    .projects-container {
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .projects-container {
+        padding: 0 20px;
+    }
+
+    .project-image-container {
+        height: 240px;
+    }
+
+    .project-content {
+        padding: 1.8rem;
+    }
+
+    .project-name {
+        font-size: 1.6rem;
+    }
+}

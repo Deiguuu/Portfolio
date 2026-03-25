@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Esto asegura que cualquier salto con anclas en tu página sea un deslizamiento suave */
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  /* ¡Aplicamos tu fuente importada a todo el proyecto! */
+  font-family: 'Poppins', sans-serif;
+}
+
+#root {
+  width: 100%;
+}
+
+/* =========================================
+   EFECTO DE DESENFOQUE DINÁMICO (BLUR)
+   ========================================= */
+
+/* El contenedor que envuelve tu Hero y Skills (definido en Home.jsx) */
+#main-content {
+  /* Esto hace que el desenfoque se aplique y se quite como un difuminado suave */
+  transition: filter 0.4s ease-in-out;
+}
+
+/* La clase que tu Navbar inyecta durante 600ms al hacer clic */
+.scrolling-blur {
+  filter: blur(8px);
+  /* Si lo quieres más borroso, súbelo a 10px o 12px */
+  pointer-events: none;
+  /* Evita que pases el mouse por botones y hagan hover mientras la pantalla está bajando */
+}

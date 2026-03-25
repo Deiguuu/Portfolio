@@ -1,0 +1,118 @@
+/* =========================================
+   VARIABLES GLOBALES
+   ========================================= */
+:root {
+    --color-text-main: #111111;
+    --color-text-muted: #333333;
+    --color-grid: rgba(255, 99, 99, 0.15);
+    --font-main: 'Poppins', sans-serif;
+    --nav-height: 100px;
+}
+
+/* =========================================
+   1. FONDO DE CUADRÍCULA (Ocupa el 100%)
+   ========================================= */
+.hero-section {
+    font-family: var(--font-main);
+    width: 100%;
+    /* Altura de la pantalla menos el Navbar */
+    min-height: calc(100vh - var(--nav-height));
+
+    background-image:
+        linear-gradient(var(--color-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center top;
+    position: relative;
+    overflow: hidden;
+}
+
+/* =========================================
+   2. CONTENEDOR MAESTRO (Alinea con Navbar)
+   ========================================= */
+.hero-container {
+    width: 100%;
+    max-width: 1400px;
+    /* Exactamente igual que Navbar y Skills */
+    margin: 0 auto;
+    /* Centra la caja en pantallas grandes */
+    padding: 0 80px;
+    /* Mismo padding lateral que las otras secciones */
+
+    /* Movemos el Flexbox de tu versión original aquí */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+
+    /* Hereda la altura de la sección para poder centrar verticalmente */
+    min-height: calc(100vh - var(--nav-height));
+}
+
+/* =========================================
+   3. BLOQUE DE TEXTO
+   ========================================= */
+.hero-text {
+    flex: 1;
+    /* Toma la mitad del espacio disponible */
+}
+
+.hero-text h1 {
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    font-weight: 600;
+    color: var(--color-text-main);
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+    line-height: 1.5;
+    font-weight: 500;
+    /* Corregido: 500 es el valor real para Medium */
+    color: var(--color-text-muted);
+    max-width: 600px;
+    /* Evita que las líneas sean demasiado largas de leer */
+}
+
+/* =========================================
+   4. BLOQUE DE IMAGEN (Avatar)
+   ========================================= */
+.hero-image {
+    flex: 1;
+    /* Toma la otra mitad del espacio */
+    display: flex;
+    justify-content: flex-end;
+    /* Empuja la imagen hacia la derecha */
+    align-items: center;
+}
+
+.avatar {
+    max-width: 100%;
+    height: auto;
+    /* Si tenías animaciones en tu avatar original, se mantienen aquí */
+}
+
+/* =========================================
+   5. RESPONSIVE (Celulares y Tablets)
+   ========================================= */
+@media (max-width: 900px) {
+    .hero-container {
+        flex-direction: column;
+        /* Apila el texto arriba de la imagen */
+        justify-content: center;
+        text-align: center;
+        padding: 40px 20px;
+        /* Mismo padding lateral de 20px que Skills */
+    }
+
+    .hero-image {
+        justify-content: center;
+        /* Centra la imagen en celulares */
+        margin-top: 2rem;
+    }
+
+    .hero-text p {
+        margin: 0 auto;
+        /* Centra el párrafo en celulares */
+    }
+}

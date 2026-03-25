@@ -1,0 +1,94 @@
+:root {
+    --container-width: 1400px;
+    /* Igualamos al max-width de tu Hero */
+    --button-bg: #bff0d4;
+    --button-hover: #a9e9c6;
+    --button-radius: 1.2rem;
+    --button-font: clamp(0.95rem, 1.2vw, 1.1rem);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Ajustamos el padding para que coincida visualmente con el Hero (80px) */
+    padding: 1.5rem 80px;
+    box-sizing: border-box;
+    /* IMPRESCINDIBLE para evitar el slider */
+
+    /* -- NUEVAS REGLAS: Flotación y Efecto Cristal -- */
+    position: sticky;
+    /* Hace que el Navbar se quede pegado arriba al hacer scroll */
+    top: 0;
+    /* Indica que se pegue justo en el borde superior de la pantalla */
+    z-index: 1000;
+    /* Asegura que el Navbar siempre esté por encima del resto del contenido */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Fondo blanco semi-transparente */
+    backdrop-filter: blur(12px);
+    /* Efecto de desenfoque al fondo (cristal) */
+    -webkit-backdrop-filter: blur(12px);
+    /* Soporte extra para navegadores Safari/Apple */
+}
+
+/* ===== NAV LINKS ===== */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.9rem, 2vw, 1.5rem);
+    flex-wrap: wrap;
+    /* Evita que los botones empujen el ancho en pantallas chicas */
+}
+
+/* ===== BUTTONS ===== */
+.nav-links button {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--button-bg);
+    border: none;
+    padding: 0.7rem 1.4rem;
+    border-radius: var(--button-radius);
+    font-weight: 600;
+    font-size: var(--button-font);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+    /* Evita que el texto del botón se parta en dos líneas */
+}
+
+.nav-links button:hover {
+    background: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== AVATAR ===== */
+.avatar-small {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-small img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .navbar {
+        padding: 1rem 20px;
+        /* Reducimos padding en móvil */
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+}

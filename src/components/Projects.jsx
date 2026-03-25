@@ -3,7 +3,7 @@ import './Projects.css';
 
 // 1. IMPORTAMOS las imágenes desde la carpeta assets
 import asismedImg from '../assets/asismed-mockup.png';
-import ecollectaImg from '../assets/ecollecta-mockup.jpg';
+import ecollectaImg from "../assets/Ecollecta-mockup.jpg";
 import cosmoImg from '../assets/cosmo-mockup.png';
 import contadoresImg from '../assets/contadores-mockup.png';
 
